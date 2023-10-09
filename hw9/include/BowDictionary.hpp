@@ -1,7 +1,8 @@
 #include <filesystem>
-#include <kmeans.hpp>
 #include <opencv2/core/mat.hpp>
 #include <vector>
+
+#include "kmeans.hpp"
 
 using cv::Mat;
 using std::vector;
@@ -15,7 +16,6 @@ namespace ipb {
 
         int max_iter_;
         int dict_size_;
-        vector<Mat> in_descriptors_;
         Mat vocabulary_;
 
       public:
@@ -28,17 +28,13 @@ namespace ipb {
         }
 
         // Getters methods
-        int max_iterations() const;
         int size() const;
-        vector<Mat> descriptors() const;
         Mat vocabulary() const;
-        int total_features() const;
         bool empty() const;
 
         // Setters methods
-        void set_params(int max_iter, int dict_size, vector<Mat> &descriptors);
-        void set_max_iterations(int iters);
+        void build(int max_iter, int dict_size, const vector<Mat> &descriptors);
+        void set_vocabulary(Mat vocabulary);
         void set_size(int size);
-        void set_descriptors(vector<Mat> &descriptors);
     };
 }  // namespace ipb

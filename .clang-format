@@ -1,0 +1,10 @@
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 80
+UseTab: Never
+Standard: c++17
+ContinuationIndentWidth: 4
+AccessModifierOffset: -2
+BinPackParameters: false
+SortIncludes: true
+NamespaceIndentation: All
